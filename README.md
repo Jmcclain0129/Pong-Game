@@ -20,13 +20,14 @@ I am hoping this qualifies for grading purposes because there are no links to th
 These improvements include the following exercises:
 
 1. Change the size and color of the given shapes.
- changed the height only to half original
- changed brick color to darker blue
- changed score and lives color to black
- added 7 addional lives
- added 9 new rows
- sdded 5 new columns
- decreased the brick padding to half original
+ - Changed the brick height to half original
+ - Changed brick color type to rgb
+ - Changed brick color to random
+ - Changed score and lives color to black
+ - Added 7 additional lives
+ - Added 9 new rows
+ - Added 5 new columns
+ - Decreased the brick padding to half original
 2. Change the speed of the moving ball, or the direction it moves in.
 3. Change the color of the ball to a random colour every time it hits the wall.
 4. Make the paddle move faster or slower, or change its size.

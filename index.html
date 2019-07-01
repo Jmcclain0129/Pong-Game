@@ -22,10 +22,10 @@
     var paddleX = (canvas.width-paddleWidth)/2;
     var rightPressed = false;
     var leftPressed = false;
-    var brickRowCount = 12;
+    var brickRowCount = 5;
     var brickColumnCount = 10;
     var brickWidth = 35;
-    var brickHeight = 10;
+    var brickHeight = 20;
     var brickPadding = 5;
     var brickOffsetTop = 30;
     var brickOffsetLeft = 40;
@@ -45,7 +45,7 @@
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
-
+/*document.addEventListener("collisioncolor", CollideColorChange, false);*/
 
 
 // key pressed down
@@ -122,7 +122,7 @@ function drawBricks() {
      bricks[c][r].y = brickY;
      ctx.beginPath();
      ctx.rect(brickX, brickY, brickWidth, brickHeight);
-     ctx.fillStyle = "#0055DD";
+     ctx.fillStyle =  ('rgb('+Math.floor(Math.random() * 256)+','+Math.floor(Math.random() * 256)+','+Math.floor(Math.random() * 256)+')');;
      ctx.fill();
      ctx.closePath();
    }
@@ -151,13 +151,15 @@ function draw() {
     drawScore();
     drawLives();
     collisionDetection();
+   
+   
 
     // ball bounces off of left edge
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
     dx = -dx;
 }
 
-    // this merges the two if statements above for cleaner code
+    // ball bounces
     if(y + dy < ballRadius) {
     dy = -dy;
 } 
