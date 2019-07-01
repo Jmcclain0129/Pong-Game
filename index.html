@@ -22,15 +22,15 @@
     var paddleX = (canvas.width-paddleWidth)/2;
     var rightPressed = false;
     var leftPressed = false;
-    var brickRowCount = 3;
-    var brickColumnCount = 5;
-    var brickWidth = 75;
-    var brickHeight = 20;
-    var brickPadding = 10;
+    var brickRowCount = 12;
+    var brickColumnCount = 10;
+    var brickWidth = 35;
+    var brickHeight = 10;
+    var brickPadding = 5;
     var brickOffsetTop = 30;
-    var brickOffsetLeft = 30;
+    var brickOffsetLeft = 40;
     var score = 0;
-    var lives = 3;
+    var lives = 10;
 
 // initialise bricks columns and  rows
     var bricks = [];
@@ -122,7 +122,7 @@ function drawBricks() {
      bricks[c][r].y = brickY;
      ctx.beginPath();
      ctx.rect(brickX, brickY, brickWidth, brickHeight);
-     ctx.fillStyle = "#0095DD";
+     ctx.fillStyle = "#0055DD";
      ctx.fill();
      ctx.closePath();
    }
@@ -133,13 +133,13 @@ function drawBricks() {
 // creates and updates score
 function drawScore() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000000";
     ctx.fillText("Score: "+score, 8, 20);
 }
-
+// creates and updates lives
 function drawLives() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000000";
     ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
@@ -166,7 +166,7 @@ function draw() {
       dy = -dy;
     }
   
-    // game over if ball hit bottom
+    // life or game over if ball hits bottom
     else {
      lives--;
       if(!lives) {
