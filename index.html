@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop -HTML 5 Pong Game</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <style>* { padding: 0; margin: 0; } canvas { background: #eee; display: block; margin: 0 auto; }</style>
-</head>
-<body>
+  </head>
+  <body>
+    <div style="text-align:center"> 
+  <button onclick="pause()">Play/Pause</button> 
+</div>
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
@@ -31,6 +36,7 @@
     var brickOffsetLeft = 40;
     var score = 0;
     var lives = 10;
+    var currentState = startGame;
 
 // initialise bricks columns and  rows
     var bricks = [];
@@ -43,10 +49,73 @@
 }
 // key event listeners
 document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+//document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
-/*document.addEventListener("collisioncolor", CollideColorChange, false);*/
 
+    // set up keyboard IO
+    const keys = {  
+        KeyP : false,
+        Enter : true,
+        listener(e){
+        if(keys[e.code] !== undefined) {
+            keys[e.code] = e.type === "keydown1";
+            e.preventDefault();
+        }
+    }
+}
+
+document.addEventListener("keydown1",keys.listener);
+document.addEventListener("keyup1",keys.listener);
+
+    function startGame (){
+     // code to do a single frame of start game
+    // display press enter to start
+    if(keys.Enter){
+        keys.Enter = false;
+        currentState = game; // start the game
+        return true;    
+   } else {
+     keys.Enter = true;
+     currentState = pause
+     return false;
+   }
+}
+
+
+    function pause() {
+     // code to do a single frame of pause
+    // display pause
+    
+    if(keys.KeyP) {
+        currentState = pause; // resume game
+        return false;
+    } else {
+      currentState = game;
+      return true;
+    }
+
+}
+    function game() {
+        // code to do a single frame of game
+    
+    if(keys.KeyP){
+        currentState = pause;  // pause game
+        return false;
+    } else {
+      currentState = game;
+      return true;
+    }
+    
+}
+    function mainLoop(time){
+        let state = currentState(); // call the current game state
+        if(state) {
+          requestAnimationFrame(mainLoop);
+          requestAnimationFrame(draw);
+        } else {
+        
+        }
+}
 
 // key pressed down
 function keyDownHandler(e) {
@@ -56,17 +125,29 @@ function keyDownHandler(e) {
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = true;
     }
+    else if(e.key === 'Enter') {
+        requestAnimationFrame(mainLoop)
+        draw();
+    }
+    else if(e.key === 'p') {
+      keys.KeyP = (keys.KeyP) ? false: true;
+        currentState();
+        pause();
+        requestAnimationFrame(mainLoop)
+        draw();
+        
+    }
 }
 
 // key released
-function keyUpHandler(e) {
+/*function keyUpHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = false;
     }
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
     }
-}
+}*/
 
 // paddle position based on pointer coordinates
 function mouseMoveHandler(e) {
@@ -150,8 +231,7 @@ function draw() {
     drawPaddle();
     drawScore();
     drawLives();
-    collisionDetection();
-   
+    collisionDetection();  
    
 
     // ball bounces off of left edge
@@ -159,7 +239,7 @@ function draw() {
     dx = -dx;
 }
 
-    // ball bounces
+    // ball bounces off of right edge
     if(y + dy < ballRadius) {
     dy = -dy;
 } 
@@ -193,12 +273,70 @@ function draw() {
 
     x += dx;
     y += dy;
-    requestAnimationFrame(draw);
+    //requestAnimationFrame(draw);
+    //requestAnimationFrame(mainLoop);  // start when code below done.
+    
 }
 
 draw();
+//mainLoop();
 
 </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simon Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='https://fonts.googleapis.com/css?family=Original+Surfer&effect=emboss' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+
+  <audio id="audio1">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></source>
+  </audio>
+  <audio id="audio2">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></source>
+  </audio>
+  <audio id="audio3">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></source>
+  </audio>
+  <audio id="audio4">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></source>
+  </audio>
+</head>
+
+<body>
+
+  <div id="outer-circle">
+    <div id="greenquad"></div>
+    <div id="redquad"></div>
+    <div id="yellowquad"></div>
+    <div id="bluequad"></div>
+    <div id="inner-circle">
+      <div id="title" class="font-effect-emboss">SIMON GAME</div>
+      <div id="switches">
+        <input type="checkbox" class="toggle" id="power">
+        <button class="button" id="start">Start</button>
+        <input type="checkbox" class="toggle" id="strict">
+      </div>
+      <div class="text1">
+        <span>POWER</span><span>STRICT</span>
+      </div>
+      <div id="playerturn"></div>
+      <div class="text2">
+        COUNT
+      </div>
+    </div>
+  </div>
+
+  <script  src="js/script.js"></script>
 
 </body>
-</html>
+</html>-->

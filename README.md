@@ -29,6 +29,7 @@ These improvements include the following exercises:
  - Added 5 new columns
  - Decreased the brick padding to half original
 2. Change the speed of the moving ball, or the direction it moves in.
+- Adjust reflection angle when ball hits paddle so that ball goes in opposite direction based on which half of the paddle it strikes. Standard configuration send the ball in opposite direction no matter where it collides with the paddle.
 3. Change the color of the ball to a random colour every time it hits the wall.
 4. Make the paddle move faster or slower, or change its size.
 5. Make the ball move faster when it hits the paddle.
@@ -61,3 +62,9 @@ Built in the first commit version
 8. Track the score and win
 9. Mouse controls
 10. Finishing up
+
+Tech Hurdles:
+
+Coloring bricks: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+Bounce deflection: http://www.informit.com/articles/article.aspx?p=2180417&seqNum=2
