@@ -6,13 +6,14 @@ body {
   }
 
 /* tutorial */
-.tutorial {
+tutorial {
   font-size: 12px;
 }
 
 /* grid */
 .container > div {
   width: 800px;
+  margin: auto;
   background-color: rgb(227, 252, 2);
   border: 5px solid rgb(6, 195, 253);
   text-align: center;

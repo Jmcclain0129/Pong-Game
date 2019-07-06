@@ -30,12 +30,28 @@
  }
 }
 
+
+
 // creates and updates score
 function drawScore() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "#000000";
     ctx.fillText("Score: "+score, 8, 20);
 }
+
+// new function
+function updateScore() {
+
+    document.getElementById("Score").innerHTML = score;
+}
+
+// new function
+function updateLives() {
+
+    document.getElementById("Lives").innerHTML = lives;
+}
+
+
 // creates and updates lives
 function drawLives() {
     ctx.font = "16px Arial";
@@ -47,6 +63,8 @@ function drawLives() {
 document.addEventListener("keydown", keyDownHandler, false);
 // document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
+document.getElementById("speedButton").addEventListener("click", speedGame);
+
 
     // set up keyboard IO
     const keys = {  
@@ -108,6 +126,15 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
         } 
 }
 
+
+function speedGame() {
+console.log("speedButton")
+
+    requestAnimationFrame(mainLoop) //speeds up ball
+    draw();
+
+}
+
 // key pressed down for pause start
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
@@ -116,10 +143,10 @@ function keyDownHandler(e) {
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = true;
     }
-    else if(e.key === 'Enter') {
+    /*else if(e.key === 'Enter') {
         requestAnimationFrame(mainLoop) //speeds up ball
         draw();
-    }
+    }*/
     else if(e.key === 'p') {
       keys.KeyP = (keys.KeyP) ? false: true;
         currentState();
@@ -156,6 +183,7 @@ function collisionDetection() {
                     dy = -dy;
                     b.status = 0;
                     score++;
+                    updateScore();
                     if(score == brickRowCount*brickColumnCount) {
                      alert("YOU WIN, CONGRATS!");
                      document.location.reload();
@@ -206,10 +234,12 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
-    drawScore();
-    drawLives();
+    /*drawScore();*/
+    /*drawLives();*/
     collisionDetection();  
-   
+  
+    
+    
 
     // ball bounces off of left edge
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
@@ -228,6 +258,7 @@ function draw() {
     // life or game over if ball hits bottom
     else {
      lives--;
+     updateLives();
       if(!lives) {
       alert("GAME OVER");
       document.location.reload();
@@ -251,9 +282,11 @@ function draw() {
     x += dx;
     y += dy;
     //requestAnimationFrame(draw);
-    //requestAnimationFrame(mainLoop);  // start when code below done.
+    //requestAnimationFrame(mainLoop);
     
 }
+
+
 
 draw();
 //mainLoop();
