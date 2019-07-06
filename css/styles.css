@@ -1,0 +1,54 @@
+/* background */
+body {
+    height: 100%;
+    background-color: #2b06fc;
+    justify-content: center
+  }
+
+/* tutorial */
+.tutorial {
+  font-size: 12px;
+}
+
+/* grid */
+.container > div {
+  width: 800px;
+  background-color: rgb(227, 252, 2);
+  border: 5px solid rgb(6, 195, 253);
+  text-align: center;
+  font-size: 30px;
+}
+
+
+
+.grid-container {
+  display: grid;
+  border: 10
+  px solid rgba(0, 0, 0, 0.8);
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.footer {
+    width: 800px;
+    background: rgb(227, 252, 2) !important;
+    border: 5px solid rgb(6, 195, 253);
+    text-align: center;
+    padding: 11px;
+    height: auto;
+    font-size: 12px !important;
+}
+  
+    /* Apply styles starting from medium devices and up to extra large devices */
+    @media (min-width: 576px) and (max-width: 767.98px) { 
+      .lowerstates {
+        text-size-adjust: 12px;
+  }
+}

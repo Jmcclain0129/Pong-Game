@@ -68,3 +68,7 @@ Tech Hurdles:
 Coloring bricks: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 Bounce deflection: http://www.informit.com/articles/article.aspx?p=2180417&seqNum=2
+
+Key action: https://stackoverflow.com/questions/43814422/how-to-pause-simple-canvas-game-made-with-js-and-html5
+
+Elevating game to new heights: https://codecanyon.net/item/breakout-html5-game/20329376
