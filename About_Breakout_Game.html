@@ -9,11 +9,15 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
   <!-- wrapper -->
   <div class="container gridcontainer">
     <!-- Header -->
     <div class= "tutorial">
-      <h1>History of the Breakout Game</h1>      
+      <h1>History of the Breakout Game</h1>
+      <button type="button" class="btn btn-info" onclick="goBack()">Go Back</button>    
+      <br>
+      <br>
     </div>
     <!-- page content -->
     <div class="history">
@@ -28,6 +32,11 @@
     </div>
   </div>
 <!-- scripts -->
+<script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
 <script src="js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
