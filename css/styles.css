@@ -2,13 +2,7 @@
 body {
     height: 100%;
     background-color: #2b06fc;
-    justify-content: center
   }
-
-/* tutorial */
-tutorial {
-  font-size: 12px;
-}
 
 /* grid */
 .container > div {
@@ -20,9 +14,8 @@ tutorial {
   font-size: 30px;
 }
 
-
-
 .grid-container {
+  width: 100px;
   display: grid;
   border: 10
   px solid rgba(0, 0, 0, 0.8);
@@ -37,8 +30,14 @@ tutorial {
   text-align: center;
 }
 
+.history {
+  text-align: right;
+  padding: 20px;
+}
+
 .footer {
     width: 800px;
+    margin: auto;
     background: rgb(227, 252, 2) !important;
     border: 5px solid rgb(6, 195, 253);
     text-align: center;
@@ -48,8 +47,8 @@ tutorial {
 }
   
     /* Apply styles starting from medium devices and up to extra large devices */
-    @media (min-width: 576px) and (max-width: 767.98px) { 
+    /*@media (min-width: 576px) and (max-width: 767.98px) { 
       .lowerstates {
         text-size-adjust: 12px;
-  }
+  } */
 }

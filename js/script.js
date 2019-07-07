@@ -32,12 +32,7 @@
 
 
 
-// creates and updates score
-function drawScore() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#000000";
-    ctx.fillText("Score: "+score, 8, 20);
-}
+
 
 // new function
 function updateScore() {
@@ -51,20 +46,12 @@ function updateLives() {
     document.getElementById("Lives").innerHTML = lives;
 }
 
-
-// creates and updates lives
-function drawLives() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#000000";
-    ctx.fillText("Lives: "+lives, canvas.width -65, 20);
-}
-
 // key event listeners
 document.addEventListener("keydown", keyDownHandler, false);
 // document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
 document.getElementById("speedButton").addEventListener("click", speedGame);
-
+document.getElementById("speedButton").addEventListener("click", speedGame);
 
     // set up keyboard IO
     const keys = {  

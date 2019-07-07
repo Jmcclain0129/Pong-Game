@@ -14,42 +14,56 @@
 
     <div class="container gridcontainer">
       <div class="jumbotron">
-        <h1>Game Tutorial</h1>      
-        <p>Press P x2 to start</p>
-        <p>Press Enter to speed up ball</p>
-
+        <h1>DISCO BREAKOUT</h1>      
       </div>
-      
-      <div class="grid-container">
-            <div class="grid-item">
-                <h2>Score:</h2>
-                <h3 id="Score">0</h3>
-            </div>
-             <div class="grid-item"><h2>Lives:</h2><h3 id="Lives">0</h3></div>
-                
-                
-            <div class="grid-item">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#how-to-play-modal">
-                    How to play
-                  </button>
-                  <br>
-                <button type="button" id="speedButton" class="btn btn-primary">
-                  Go Faster
-                  </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#how-to-play-modal">About Breakout</button>
-            </div>    
-          </div>
+    <div class="grid-container">
+      <div class="grid-item"><h2>Score:</h2><h3 id="Score">0</h3></div>    
+    <div class="grid-item"><h2>Lives:</h2><h3 id="Lives">0</h3></div>  
+      <div class="grid-item">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">How To Play</button>
+        <br>
+        <!-- Trigger he history of the game -->
+        <a href="http://127.0.0.1:5500/About_Breakout_Game.html" class="btn btn-info" role="button">About Breakout</a>
+        <br>
+        <!-- Trigger increased ball speed -->
+        <button type="button" id="speedButton" class="btn btn-info">Go Faster</button>
+      </div>    
+    </div>    
+  <div>
+  <canvas id="myCanvas" width="480" height="320"></canvas>
+  </div>
 
-      <div>
-        <canvas id="myCanvas" width="480" height="320"></canvas>
-      </div>
-
-      <div class="footer">
-        <h4>This is a simple breakout game developed for the interactive milestone project</h4>
-      </div>
+<div class="footer">
+  <h4>This is a simple breakout game developed for the interactive milestone project</h4>
 </div>
-    
+</div>
 
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">How To Play</h4>
+          </div>
+          <div class="modal-body">
+            <h1>Game Tutorial</h1>
+            <p><h4>Press "P" twice to start playing</h4></p>
+            <p><h4>Press "Enter" or the "GO FASTER" button to increase difficulty</h4></p>
+            <p><h4>Press "P" to "PAUSE" and/or "P" to "RESUME" while game is in play</h4></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Play</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
 
   <script src="js/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
