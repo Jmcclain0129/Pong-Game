@@ -3,27 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Disco Breakout Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Original+Surfer&effect=emboss' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css">
 </head>
   <body>
+    <!-- header area -->
     <div class="container gridcontainer">
       <div class="Tutorial">
         <h1>DISCO BREAKOUT</h1>      
       </div>
+      <!-- Score Counter-->
     <div class="grid-container">
-      <div class="grid-item"><h2>Score:</h2><h3 id="Score">0</h3></div>    
-    <div class="grid-item"><h2>Lives:</h2><h3 id="Lives">0</h3></div>  
-      <div class="grid-item">
-        <!-- Trigger the modal with a button -->
+      <div class="grid-item"><h2>Score:</h2><h3 id="Score">0</h3>
+      </div>    
+        <!-- Lives Counter-->
+      <div class="grid-item"><h2>Lives:</h2><h3 id="Lives">0</h3>
+      </div>
+      <!-- Action Buttons-->
+    <div class="grid-item">
+        <!-- Button opens the "How To Play" modal -->
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">How To Play</button>
         <br>
-        <!-- Trigger he history of the game -->
-        <a href="http://127.0.0.1:5500/About_Breakout_Game.html" class="btn btn-info" role="button">About Breakout</a>
+        <!-- Button redirects to the "About" page which teaches the history of the breakout game  -->
+        <a href="About_Breakout_Game.html" class="btn btn-info" role="button">About Breakout</a>
         <br>
-        <!-- Trigger increased ball speed -->
+        <!-- Button triggers increased ball speed -->
         <button type="button" id="speedButton" class="btn btn-info">Go Faster</button>
       </div>    
     </div>
@@ -51,6 +57,7 @@
           <p><h4>Press "Enter" or the "GO FASTER" button to increase difficulty</h4></p>
           <p><h4>Press "P" to "PAUSE" and/or "P" to "RESUME" while game is in play</h4></p>
         </div>
+        <!-- Collapse Modal-->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -58,6 +65,7 @@
     </div>
   </div>
 </div>
+<!-- Scripts-->
 <script src="js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
